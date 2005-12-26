@@ -5,12 +5,13 @@ Name:		cgikit
 Version:	1.0b5
 Release:	1
 License:	GPL
+Group:		Development/Libraries
 Source0:	http://www.freepan.org/canon/s/su/SuzukiTetsuya/ruby/cgikit/%{name}-%{version}.tar.gz
 # Source0-md5:	268c4b807d983486ba54dded24b2c173
-Group:		Development/Libraries
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildArch:	noarch
+BuildRequires:	rpmbuild(macros) >= 1.272
 BuildRequires:	ruby
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Ruby CGIKit Library
