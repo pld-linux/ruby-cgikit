@@ -1,6 +1,7 @@
 %define ruby_rubylibdir %(ruby -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
 %define ruby_archdir %(ruby -r rbconfig -e 'print Config::CONFIG["archdir"]')
 Summary:	Ruby CGIKit Library
+Summary(pl):	Biblioteka Ruby CGIKit
 Name:		cgikit
 Version:	1.0b5
 Release:	2
@@ -14,12 +15,16 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Ruby CGIKit Library
+Ruby CGIKit Library.
+
+%description -l pl
+Biblioteka Ruby CGIKit.
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}-%{version}
+%setup -q
 
 %build
+cd %{name}-%{version}
 ruby install.rb config \
 	--prefix=%{_prefix} \
 	--site-ruby=%{ruby_rubylibdir} \
@@ -27,17 +32,19 @@ ruby install.rb config \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/%{ruby_rubylibdir}
+install -d $RPM_BUILD_ROOT%{ruby_rubylibdir}
+cd %{name}-%{version}
+
 ruby install.rb install --prefix=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc %{name}-%{version}/README
 %{ruby_rubylibdir}/cgikit.rb
 %dir %{ruby_rubylibdir}/cgikit
 %dir %{ruby_rubylibdir}/cgikit/components
 %{ruby_rubylibdir}/cgikit/components/CKErrorPage
 %dir %{ruby_rubylibdir}/cgikit/elements
-
-%clean
-rm -rf $RPM_BUILD_ROOT
