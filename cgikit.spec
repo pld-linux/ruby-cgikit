@@ -9,9 +9,10 @@ License:	GPL
 Group:		Development/Libraries
 Source0:	http://www.freepan.org/canon/s/su/SuzukiTetsuya/ruby/cgikit/%{name}-%{version}.tar.gz
 # Source0-md5:	268c4b807d983486ba54dded24b2c173
-BuildRequires:	rpmbuild(macros) >= 1.272
+BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby-modules
 BuildArch:	noarch
+%ruby_mod_ver_requires_eq
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
