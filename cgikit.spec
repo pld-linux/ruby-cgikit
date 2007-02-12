@@ -1,7 +1,7 @@
 %define ruby_rubylibdir %(ruby -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
 %define ruby_archdir %(ruby -r rbconfig -e 'print Config::CONFIG["archdir"]')
 Summary:	Ruby CGIKit Library
-Summary(pl):	Biblioteka Ruby CGIKit
+Summary(pl.UTF-8):   Biblioteka Ruby CGIKit
 Name:		cgikit
 Version:	1.0b5
 Release:	2
@@ -18,7 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Ruby CGIKit Library.
 
-%description -l pl
+%description -l pl.UTF-8
 Biblioteka Ruby CGIKit.
 
 %prep
